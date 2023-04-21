@@ -1,5 +1,9 @@
 name: Build and Test
-on: [push, pull_request]
+on:
+  pull_request:
+    branches: ["master"]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 env:
   # go needs absolute directories, using the $HOME variable doesn't work here.
