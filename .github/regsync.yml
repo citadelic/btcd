@@ -1,0 +1,14 @@
+version: 1
+creds:
+  - registry: ghcr.io
+  - registry: docker.io
+    user: "{{env \"$DOCKERHUB_USERNAME\"}}"
+    pass: "{{env \"$DOCKERHUB_TOKEN\"}}"
+defaults:
+  ratelimit:
+    min: 100
+  parallel: 2
+sync:
+  - source: "ghcr.io/{{env \"$IMAGE_NAME\"}}"
+    target: "{{env \"$IMAGE_NAME\"}}"
+    type: image
